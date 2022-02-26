@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.fileTransferBox = new System.Windows.Forms.GroupBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.checkBoxForDup = new System.Windows.Forms.CheckBox();
@@ -482,6 +483,7 @@
             this.Controls.Add(this.BrowseBox);
             this.Controls.Add(this.LogBox);
             this.Controls.Add(this.fileTransferBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Form1";
             this.fileTransferBox.ResumeLayout(false);
