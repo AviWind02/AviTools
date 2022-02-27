@@ -225,12 +225,30 @@ namespace AviTools_1
             filesTransfered.SelectionStart = filesTransfered.Text.Length;
             filesTransfered.ScrollToCaret();
         }
+        private void g_loadFile()
+        {
+            string Appdata = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            if (Directory.Exists(Appdata+"\\Avi"))
+            {
+                if(File.Exists(Appdata + "\\Avi\\Avi.txt"))
+                foreach (string line in System.IO.File.ReadLines(Appdata + "\\Avi\\Avi.txt"))
+                {
+                    listBoxForRecentPaths.Items.Add(line);
+                }
+            }
+            else
+            {
+                Directory.CreateDirectory(Appdata + "\\Avi");
+                File.Create(Appdata + "\\Avi\\Avi.txt");
+            }
+        }
         public Form1()
         {
             InitializeComponent();
             loadDrives();
+            g_loadFile();
         }
-     
+
 
         private void listBoxForSource_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -276,6 +294,7 @@ namespace AviTools_1
         private void buttonTranfer_Click(object sender, EventArgs e)
         {
             CopyDirectory(pickedDrivesrc, pickedDrivedes, true);
+            System.IO.File.AppendAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\Avi\\Avi.txt", pickedDrivesrc + "\r\n");
         }
 
 
@@ -286,6 +305,20 @@ namespace AviTools_1
                 pickedDrivedes = listBoxForDestination.GetItemText(listBoxForDestination.SelectedItem);
                 listBoxForDestination.Items.Clear();
                 loadDirectoryDes();
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+            }
+        }
+
+        private void listBoxForRecentPaths_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                pickedDrivesrc = listBoxForRecentPaths.GetItemText(listBoxForRecentPaths.SelectedItem);
+                listBoxForSource.Items.Clear();
+                loadDirectorySrc();
             }
             catch (Exception ex)
             {

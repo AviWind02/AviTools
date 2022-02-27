@@ -66,6 +66,8 @@
             this.progressBarForFolder = new System.Windows.Forms.ProgressBar();
             this.FilesFailedTextBox = new System.Windows.Forms.TextBox();
             this.MyBox = new System.Windows.Forms.TextBox();
+            this.groupBoxForPaths = new System.Windows.Forms.GroupBox();
+            this.listBoxForRecentPaths = new System.Windows.Forms.ListBox();
             this.fileTransferBox.SuspendLayout();
             this.LogBox.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -73,6 +75,7 @@
             this.BrowseBox.SuspendLayout();
             this.groupBoxForFilesinDir.SuspendLayout();
             this.FilepathsBox.SuspendLayout();
+            this.groupBoxForPaths.SuspendLayout();
             this.SuspendLayout();
             // 
             // fileTransferBox
@@ -143,9 +146,9 @@
             this.LogBox.Controls.Add(this.StatusBox);
             this.LogBox.Controls.Add(this.fileErrors);
             this.LogBox.Controls.Add(this.filesTransfered);
-            this.LogBox.Location = new System.Drawing.Point(18, 265);
+            this.LogBox.Location = new System.Drawing.Point(12, 265);
             this.LogBox.Name = "LogBox";
-            this.LogBox.Size = new System.Drawing.Size(1232, 292);
+            this.LogBox.Size = new System.Drawing.Size(1238, 292);
             this.LogBox.TabIndex = 1;
             this.LogBox.TabStop = false;
             this.LogBox.Text = "Log";
@@ -425,9 +428,9 @@
             // 
             this.FilepathsBox.Controls.Add(this.textBoxForsrc);
             this.FilepathsBox.Controls.Add(this.textBoxForDestination);
-            this.FilepathsBox.Location = new System.Drawing.Point(18, 213);
+            this.FilepathsBox.Location = new System.Drawing.Point(12, 213);
             this.FilepathsBox.Name = "FilepathsBox";
-            this.FilepathsBox.Size = new System.Drawing.Size(380, 55);
+            this.FilepathsBox.Size = new System.Drawing.Size(386, 55);
             this.FilepathsBox.TabIndex = 10;
             this.FilepathsBox.TabStop = false;
             this.FilepathsBox.Text = "File paths";
@@ -472,11 +475,31 @@
             this.MyBox.TabIndex = 8;
             this.MyBox.Text = "By: Avi 2022  The transfer system(TTS)";
             // 
+            // groupBoxForPaths
+            // 
+            this.groupBoxForPaths.Controls.Add(this.listBoxForRecentPaths);
+            this.groupBoxForPaths.Location = new System.Drawing.Point(12, 133);
+            this.groupBoxForPaths.Name = "groupBoxForPaths";
+            this.groupBoxForPaths.Size = new System.Drawing.Size(386, 74);
+            this.groupBoxForPaths.TabIndex = 11;
+            this.groupBoxForPaths.TabStop = false;
+            this.groupBoxForPaths.Text = "Recent paths directory";
+            // 
+            // listBoxForRecentPaths
+            // 
+            this.listBoxForRecentPaths.FormattingEnabled = true;
+            this.listBoxForRecentPaths.Location = new System.Drawing.Point(6, 19);
+            this.listBoxForRecentPaths.Name = "listBoxForRecentPaths";
+            this.listBoxForRecentPaths.Size = new System.Drawing.Size(374, 43);
+            this.listBoxForRecentPaths.TabIndex = 4;
+            this.listBoxForRecentPaths.SelectedIndexChanged += new System.EventHandler(this.listBoxForRecentPaths_SelectedIndexChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1262, 569);
+            this.Controls.Add(this.groupBoxForPaths);
             this.Controls.Add(this.MyBox);
             this.Controls.Add(this.FilepathsBox);
             this.Controls.Add(this.groupBoxForFilesinDir);
@@ -496,6 +519,7 @@
             this.groupBoxForFilesinDir.ResumeLayout(false);
             this.FilepathsBox.ResumeLayout(false);
             this.FilepathsBox.PerformLayout();
+            this.groupBoxForPaths.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -540,6 +564,8 @@
         private System.Windows.Forms.ProgressBar progressBarForTranfer;
         private System.Windows.Forms.TextBox FilesFailedTextBox;
         private System.Windows.Forms.TextBox MyBox;
+        private System.Windows.Forms.GroupBox groupBoxForPaths;
+        private System.Windows.Forms.ListBox listBoxForRecentPaths;
     }
 }
 
